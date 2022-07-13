@@ -1,6 +1,5 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import Link from '../src/Link'
 import '../styles/globals.css'
 import styles from '../styles/Home.module.css'
 
@@ -8,22 +7,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Portfolio of Felix Lindgren"></meta>
       </Head>
       <main className={styles.main}>
         <Component {...pageProps} />
       </main>
-      <footer className={styles.footer}>
-        <Link
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </Link>
-      </footer>
+      {/* <footer className={styles.footer}>
+      </footer> */}
     </div>
   )
 }

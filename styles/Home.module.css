@@ -5,6 +5,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url('../public/assets/waves.svg');
+  background-repeat: no-repeat;
 }
 
 .main {
@@ -86,6 +88,9 @@
   padding: 1.5rem;
   text-align: left;
   color: inherit;
+  /* background-image: url('../public/assets/felixpwa-web-app.png'); */
+  background-size: cover;
+  background-repeat: no-repeat;
   text-decoration: none;
   border: 1px solid #eaeaea;
   border-radius: 10px;

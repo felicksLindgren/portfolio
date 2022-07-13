@@ -8,4 +8,8 @@ module.exports = withPWA({
     runtimeCaching
   },
   output: 'standalone',
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en'
+  }
 });
