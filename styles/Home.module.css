@@ -83,18 +83,18 @@
 }
 
 .card {
-  margin: 1rem;
-  flex-basis: 45%;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
+  margin: 1rem !important;
+  flex-basis: 45% !important;
+  padding: 1.5rem !important;
+  text-align: left !important;
+  color: inherit !important;
   /* background-image: url('../public/assets/felixpwa-web-app.png'); */
-  background-size: cover;
-  background-repeat: no-repeat;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  /* background-size: cover !important;
+  background-repeat: no-repeat; !important */
+  text-decoration: none !important;
+  border: 1px solid #eaeaea !important;
+  border-radius: 10px !important;
+  transition: color 0.15s ease, border-color 0.15s ease !important;
 }
 
 .card:hover,
