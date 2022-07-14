@@ -34,7 +34,7 @@ export default function Home({ sites }: IndexProps) {
       <div className={styles.grid}>
         <Link target="_blank" href="https://felixpwa.web.app/" className={styles.card}>
           <h2>felixpwa.web.app &rarr;</h2>
-          <p>Early attempt at portfolio</p>
+          <p>Early attempt at portfolio with a bunch of goodies 🍪</p>
           <Stack mt={1} direction={'row'} spacing={1}>
             <Chip label="Angular"></Chip>
             <Chip label="Firebase"></Chip>
@@ -48,7 +48,7 @@ export default function Home({ sites }: IndexProps) {
           className={styles.card}
         >
           <h2>webrtc-1311e.web.app &rarr;</h2>
-          <p>Testing out WebRTC with simple video chat</p>
+          <p>Testing out WebRTC with simple video chat 🎥</p>
           <Stack mt={1} direction={'row'} spacing={1}>
             <Chip label="JavaScript"></Chip>
             <Chip label="Firebase"></Chip>
@@ -57,7 +57,7 @@ export default function Home({ sites }: IndexProps) {
 
         <Link target="_blank" href="https://react-superchat-81ad0.web.app/" className={styles.card}>
           <h2>react-superchat-81ad0.web.app &rarr;</h2>
-          <p>Simple chat app</p>
+          <p>Simple chat app 💬</p>
           <Stack mt={1} direction={'row'} spacing={1}>
             <Chip label="React.js"></Chip>
             <Chip label="Firebase"></Chip>
