@@ -1,7 +1,5 @@
 import { Chip, Stack } from '@mui/material'
-import { Box } from '@mui/system'
 import { AppContext, AppProps } from 'next/app'
-import { useState } from 'react'
 import Link from '../src/Link'
 import styles from '../styles/Home.module.css'
 import { Site } from './api/sites'
