@@ -1,5 +1,6 @@
 import { Chip, Stack } from '@mui/material'
 import { AppContext, AppProps } from 'next/app'
+import Image from 'next/image'
 import Link from '../src/Link'
 import styles from '../styles/Home.module.css'
 import { Site } from './api/sites'
@@ -9,11 +10,11 @@ type IndexProps = {
 } & AppProps
 
 export async function getServerSideProps(context: AppContext) {
-  // const res = await fetch('http://localhost:3000/api/sites');
+  const res = await fetch('http://localhost:3000/api/sites');
 
   return {
     props: {
-      sites: []
+      sites: await res.json()
     },
   }
 }
@@ -30,37 +31,19 @@ export default function Home({ sites }: IndexProps) {
       </p>
 
       <div className={styles.grid}>
-        <Link target="_blank" href="https://felixpwa.web.app/" className={styles.card}>
-          <h2>felixpwa.web.app &rarr;</h2>
-          <p>Early attempt at portfolio with a bunch of goodies 🍪</p>
-          <Stack mt={1} direction={'row'} spacing={1}>
-            <Chip label="Angular"></Chip>
-            <Chip label="Firebase"></Chip>
-          </Stack>
+        {sites.map((site, index) => (
+          <Link key={index} target="_blank" href={site.href} className={styles.card}>
+            {/* <Image className={styles.card_image} width={50} height={50} layout={'responsive'} src={site.image.href} alt={site.image.alt} /> */}
+            <h2>{site.name} &rarr;</h2>
+            <p>{site.description}</p>
 
-        </Link>
-
-        <Link
-          target="_blank"
-          href="https://webrtc-1311e.web.app/"
-          className={styles.card}
-        >
-          <h2>webrtc-1311e.web.app &rarr;</h2>
-          <p>Testing out WebRTC with simple video chat 🎥</p>
-          <Stack mt={1} direction={'row'} spacing={1}>
-            <Chip label="JavaScript"></Chip>
-            <Chip label="Firebase"></Chip>
-          </Stack>
-        </Link>
-
-        <Link target="_blank" href="https://react-superchat-81ad0.web.app/" className={styles.card}>
-          <h2>react-superchat-81ad0.web.app &rarr;</h2>
-          <p>Simple chat app 💬</p>
-          <Stack mt={1} direction={'row'} spacing={1}>
-            <Chip label="React.js"></Chip>
-            <Chip label="Firebase"></Chip>
-          </Stack>
-        </Link>
+            <Stack mt={1} direction={'row'} spacing={1}>
+              {site.tags.map((tag, index) => (
+                <Chip key={index} label={tag}></Chip>
+              ))}
+            </Stack>
+          </Link>
+        ))}
       </div>
     </>
   )
