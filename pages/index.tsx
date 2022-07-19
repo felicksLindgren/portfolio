@@ -1,6 +1,5 @@
 import { Chip, Stack } from '@mui/material'
 import { AppContext, AppProps } from 'next/app'
-import Image from 'next/image'
 import Link from '../src/Link'
 import styles from '../styles/Home.module.css'
 import { Site } from './api/sites'
@@ -10,7 +9,7 @@ type IndexProps = {
 } & AppProps
 
 export async function getServerSideProps(context: AppContext) {
-  const res = await fetch('http://localhost:3000/api/sites');
+  const res = await fetch('http://felix.lindgren.app/api/sites');
 
   return {
     props: {
@@ -33,7 +32,6 @@ export default function Home({ sites }: IndexProps) {
       <div className={styles.grid}>
         {sites.map((site, index) => (
           <Link key={index} target="_blank" href={site.href} className={styles.card}>
-            {/* <Image className={styles.card_image} width={50} height={50} layout={'responsive'} src={site.image.href} alt={site.image.alt} /> */}
             <h2>{site.name} &rarr;</h2>
             <p>{site.description}</p>
 
