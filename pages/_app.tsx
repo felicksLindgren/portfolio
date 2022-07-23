@@ -9,13 +9,13 @@ import { Face, Home } from '@mui/icons-material'
 import Link from '../src/Link'
 
 const actions = [
-  { 
+  {
     icon: <Link sx={{ color: '#00000099', display: 'grid', placeItems: 'center' }} href="/about"><Face /></Link>,
-    name: 'About' 
+    name: 'About'
   },
-  { 
+  {
     icon: <Link sx={{ color: '#00000099', display: 'grid', placeItems: 'center' }} href="/"><Home /></Link>,
-    name: 'Home' 
+    name: 'Home'
   }
 ]
 
@@ -26,9 +26,16 @@ function MyApp({ Component, pageProps }: AppProps) {
     <div className={styles.container}>
       <Backdrop open={open} />
       <Head>
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta name="description" content="Portfolio of Felix Lindgren" />
         <title>Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Portfolio of Felix Lindgren"></meta>
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <main className={styles.main}>
         <Component {...pageProps} />
