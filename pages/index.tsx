@@ -1,24 +1,18 @@
 import { Chip, Stack } from '@mui/material'
-import { AppContext, AppProps } from 'next/app'
+import { AppProps } from 'next/app'
+import useSWR from 'swr'
 import Link from '../src/Link'
 import styles from '../styles/Home.module.css'
 import { Site } from './api/sites'
 
-type IndexProps = {
-  sites: Site[]
-} & AppProps
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-export async function getServerSideProps(context: AppContext) {
-  const res = await fetch('http://felix.lindgren.app/api/sites');
+export default function Home(props: AppProps) {
+  const { data, error } = useSWR<Site[], any>('/api/sites', fetcher)
 
-  return {
-    props: {
-      sites: await res.json()
-    },
-  }
-}
+  if (error) return <div>Failed to load</div>
+  if (!data) return <div>Loading...</div>
 
-export default function Home({ sites }: IndexProps) {
   return (
     <>
       <h1 className={styles.title}>
@@ -30,7 +24,7 @@ export default function Home({ sites }: IndexProps) {
       </p>
 
       <div className={styles.grid}>
-        {sites.map((site, index) => (
+        {data.map((site, index) => (
           <Link key={index} target="_blank" href={site.href} className={styles.card}>
             <h2>{site.name} &rarr;</h2>
             <p>{site.description}</p>
@@ -46,3 +40,4 @@ export default function Home({ sites }: IndexProps) {
     </>
   )
 }
+

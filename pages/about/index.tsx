@@ -1,8 +1,5 @@
-import { Breadcrumbs, Typography } from "@mui/material";
-import { Box } from "@mui/system";
 import { AppProps } from "next/app";
 import showdown from 'showdown';
-import Link from "../../src/Link";
 
 const converter = new showdown.Converter();
 
@@ -23,10 +20,6 @@ export async function getServerSideProps() {
 export default function About({ content }: AboutProps) {
     return (
         <>
-            {/* <Breadcrumbs sx={{ alignSelf: 'start' }}>
-                <Link sx={{ textDecoration: 'none' }} color={'text.primary'} href="/">Home</Link>
-                <Typography color={'text.primary'}>About</Typography>
-            </Breadcrumbs> */}
             <div dangerouslySetInnerHTML={{ __html: content }}></div>
         </>
     )
