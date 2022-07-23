@@ -8,6 +8,11 @@
     "scope": "/",
     "start_url": "/",
     "icons": [
+        {
+            "src": "/assets/icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
     ],
     "splash_pages": null
   }
